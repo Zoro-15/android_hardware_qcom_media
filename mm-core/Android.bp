@@ -8,6 +8,7 @@ cc_library_shared {
     ] + select(soong_config_variable("ANDROID", "target_board_platform"), {
         "msm8937": ["src/8937/registry_table_android.c"],
         "msm8953": ["src/msm8953/registry_table_android.c"],
+        "sdm660": ["src/msm8953/registry_table_android.c"],
         default: [],
     }),
 
@@ -46,6 +47,7 @@ cc_library_shared {
     ] + select(soong_config_variable("ANDROID", "target_board_platform"), {
         "msm8937": ["src/8937/registry_table.c"],
         "msm8953": ["src/msm8953/registry_table.c"],
+        "sdm660": ["src/msm8953/registry_table.c"],
         default: [],
     }),
 

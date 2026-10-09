@@ -63,6 +63,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <linux/dma-buf.h>
 #endif
 
+#ifndef V4L2_QCOM_CMD_FLUSH
+#define V4L2_QCOM_CMD_FLUSH 4
+#define V4L2_QCOM_CMD_FLUSH_OUTPUT (1 << 0)
+#define V4L2_QCOM_CMD_FLUSH_CAPTURE (1 << 1)
+#endif
+
 static ptrdiff_t x;
 
 #ifdef _ANDROID_

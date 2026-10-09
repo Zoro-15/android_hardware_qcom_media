@@ -45,6 +45,12 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 #endif
 
+#ifndef V4L2_QCOM_CMD_FLUSH
+#define V4L2_QCOM_CMD_FLUSH 4
+#define V4L2_QCOM_CMD_FLUSH_OUTPUT (1 << 0)
+#define V4L2_QCOM_CMD_FLUSH_CAPTURE (1 << 1)
+#endif
+
 #ifdef _ANDROID_
 #include <cutils/properties.h>
 #else
