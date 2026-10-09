@@ -13757,18 +13757,10 @@ void omx_vdec::prefetchNewBuffers(bool reconfig) {
 
     prefetch_size = 4096 * 16 * 2; //assuming page order 4 blocks to be easily available for allocation
     regions[0].nr_sizes = 1;
-#ifdef _TARGET_KERNEL_VERSION_49_
     regions[0].sizes = &prefetch_size;
-#else
-    regions[0].sizes = (__u64)&prefetch_size;
-#endif
     regions[0].vmid = ION_FLAG_CP_PIXEL;
     prefetch_data->nr_regions = 1;
-#ifdef _TARGET_KERNEL_VERSION_49_
     prefetch_data->regions = regions;
-#else
-    prefetch_data->regions = (__u64)regions;
-#endif
     prefetch_data->heap_id = ION_HEAP(ION_SECURE_HEAP_ID);
 
     custom_data->cmd = ION_IOC_PREFETCH;
@@ -13807,19 +13799,11 @@ void omx_vdec::drainPrefetchedBuffers() {
     }
     DEBUG_PRINT_LOW("drain size : %zu\n",  m_pf_info.pf_size);
     regions[0].nr_sizes = 1;
-#ifdef _TARGET_KERNEL_VERSION_49_
     regions[0].sizes = &(m_pf_info.pf_size);
-#else
-    regions[0].sizes = (__u64)&(m_pf_info.pf_size);
-#endif
     regions[0].vmid = ION_FLAG_CP_PIXEL;
 
     prefetch_data->nr_regions = 1;
-#ifdef _TARGET_KERNEL_VERSION_49_
     prefetch_data->regions = regions;
-#else
-    prefetch_data->regions = (__u64)regions;
-#endif
     prefetch_data->heap_id = ION_HEAP(ION_SECURE_HEAP_ID);
 
     custom_data->cmd = ION_IOC_DRAIN;
