@@ -4067,7 +4067,7 @@ OMX_ERRORTYPE  omx_vdec::get_parameter(OMX_IN OMX_HANDLETYPE     hComp,
 
 
              if (!eRet && !ioctl(drv_ctx.video_driver_fd, VIDIOC_G_CTRL, &level_control)) {
-                switch ((enum v4l2_mpeg_video_h264_level)level_control.value) {
+                switch (level_control.value) {
                     case V4L2_MPEG_VIDEO_H264_LEVEL_1_0:
                         pParam->eLevel = OMX_VIDEO_AVCLevel1;
                         break;
